@@ -1,0 +1,4784 @@
+
+<!-- saved from url=(0258)https://70434421-atari-embeds.googleusercontent.com/embeds/8ba78a5061a5008d7a0bac8cfaf5dc0c/inner-frame-minified.html?jsh=m%3B%2F_%2Fscs%2Fabc-static%2F_%2Fjs%2Fk%3Dgapi.lb.en.zhTT8Br0Ho8.O%2Fd%3D1%2Frs%3DAHpOoo-7LeULGjNQZRvhdu3G71akb6JY6A%2Fm%3D__features__ -->
+<html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"><!--<base href="https://70434421-atari-embeds.googleusercontent.com/embeds/8ba78a5061a5008d7a0bac8cfaf5dc0c/inner-frame-minified.html?jsh=m%3B%2F_%2Fscs%2Fabc-static%2F_%2Fjs%2Fk%3Dgapi.lb.en.zhTT8Br0Ho8.O%2Fd%3D1%2Frs%3DAHpOoo-7LeULGjNQZRvhdu3G71akb6JY6A%2Fm%3D__features__" target="_blank">--><base href="." target="_blank">
+
+
+
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>Musix 🎵</title>
+
+<style>
+*{
+    box-sizing:border-box;
+    margin:0;
+    padding:0;
+    font-family:Arial,Helvetica,sans-serif;
+}
+
+:root{
+    --bg:#08080b;
+    --sidebar:#0d0d11;
+    --panel:#131319;
+    --panel2:#1b1b22;
+    --border:#292932;
+    --text:#fff;
+    --muted:#9999a5;
+    --accent:#8b6cff;
+}
+
+body{
+    background:var(--bg);
+    color:var(--text);
+    min-height:100vh;
+    transition:.25s;
+}
+
+/* ================= AUTH ================= */
+
+.auth-screen{
+    position:fixed;
+    inset:0;
+    z-index:9999;
+
+    display:flex;
+    align-items:center;
+    justify-content:center;
+
+    padding:20px;
+
+    background:
+        radial-gradient(
+            circle at 20% 20%,
+            rgba(139,108,255,.25),
+            transparent 30%
+        ),
+        radial-gradient(
+            circle at 80% 80%,
+            rgba(255,0,180,.14),
+            transparent 30%
+        ),
+        #050507;
+}
+
+.auth-box{
+    width:430px;
+    max-width:100%;
+
+    padding:40px;
+
+    border-radius:28px;
+
+    background:#111116;
+
+    border:1px solid #30303a;
+
+    box-shadow:
+        0 30px 100px rgba(0,0,0,.75);
+}
+
+.auth-logo{
+    text-align:center;
+
+    font-size:44px;
+
+    font-weight:900;
+}
+
+.auth-logo span{
+    color:var(--accent);
+}
+
+.auth-text{
+    text-align:center;
+
+    color:var(--muted);
+
+    margin:10px 0 25px;
+}
+
+.auth-error{
+    min-height:18px;
+
+    color:#ff6b6b;
+
+    text-align:center;
+
+    font-size:13px;
+
+    margin-bottom:10px;
+}
+
+.input{
+    width:100%;
+
+    padding:15px;
+
+    border-radius:13px;
+
+    border:1px solid var(--border);
+
+    background:#09090d;
+
+    color:white;
+
+    outline:none;
+
+    margin-bottom:12px;
+}
+
+.input:focus{
+    border-color:var(--accent);
+}
+
+.button{
+    border:0;
+
+    border-radius:12px;
+
+    padding:13px 20px;
+
+    background:var(--accent);
+
+    color:white;
+
+    font-weight:900;
+
+    cursor:pointer;
+
+    transition:.2s;
+}
+
+.button:hover{
+    filter:brightness(1.08);
+    transform:translateY(-1px);
+}
+
+.auth-button{
+    width:100%;
+}
+
+.switch{
+    text-align:center;
+
+    color:var(--muted);
+
+    margin-top:18px;
+
+    font-size:14px;
+}
+
+.switch button{
+    border:0;
+
+    background:none;
+
+    color:#b9aaff;
+
+    font-weight:bold;
+
+    cursor:pointer;
+}
+
+/* ================= APP ================= */
+
+.app{
+    display:none;
+}
+
+/* ================= SIDEBAR ================= */
+
+.sidebar{
+    position:fixed;
+
+    left:0;
+    top:0;
+    bottom:0;
+
+    width:245px;
+
+    padding:24px 14px;
+
+    background:var(--sidebar);
+
+    border-right:1px solid var(--border);
+
+    z-index:100;
+}
+
+.logo{
+    font-size:29px;
+
+    font-weight:900;
+
+    padding:0 12px;
+
+    margin-bottom:34px;
+}
+
+.logo span{
+    color:var(--accent);
+}
+
+.nav-title{
+    color:#63636e;
+
+    font-size:10px;
+
+    font-weight:bold;
+
+    letter-spacing:1.5px;
+
+    margin:22px 12px 8px;
+
+    text-transform:uppercase;
+}
+
+.nav button{
+    width:100%;
+
+    padding:13px 12px;
+
+    border:0;
+
+    background:none;
+
+    color:#9999a5;
+
+    border-radius:12px;
+
+    text-align:left;
+
+    cursor:pointer;
+
+    margin-bottom:3px;
+
+    font-size:14px;
+}
+
+.nav button:hover,
+.nav button.active{
+    background:var(--panel2);
+
+    color:white;
+}
+
+.nav button span{
+    display:inline-block;
+
+    width:30px;
+
+    font-size:17px;
+}
+
+/* ================= MAIN ================= */
+
+.main{
+    margin-left:245px;
+
+    padding:28px 35px 125px;
+}
+
+.topbar{
+    display:flex;
+
+    align-items:center;
+
+    justify-content:space-between;
+
+    margin-bottom:30px;
+}
+
+.search-top{
+    width:370px;
+
+    padding:14px 18px;
+
+    border-radius:14px;
+
+    border:1px solid var(--border);
+
+    background:var(--panel);
+
+    color:white;
+
+    outline:none;
+}
+
+.user-mini{
+    display:flex;
+
+    align-items:center;
+
+    gap:10px;
+
+    font-weight:bold;
+}
+
+.avatar{
+    width:42px;
+    height:42px;
+
+    border-radius:50%;
+
+    display:flex;
+
+    align-items:center;
+    justify-content:center;
+
+    background:
+        linear-gradient(
+            135deg,
+            var(--accent),
+            #402eaa
+        );
+
+    font-weight:900;
+}
+
+/* ================= PAGE ================= */
+
+.page{
+    display:none;
+}
+
+.page.active{
+    display:block;
+
+    animation:pageIn .22s ease;
+}
+
+@keyframes pageIn{
+    from{
+        opacity:0;
+
+        transform:translateY(7px);
+    }
+
+    to{
+        opacity:1;
+
+        transform:translateY(0);
+    }
+}
+
+.title{
+    font-size:37px;
+
+    margin-bottom:7px;
+}
+
+.subtitle{
+    color:var(--muted);
+
+    margin-bottom:28px;
+}
+
+/* ================= HERO ================= */
+
+.hero{
+    min-height:245px;
+
+    padding:38px;
+
+    border-radius:25px;
+
+    border:1px solid #39304e;
+
+    margin-bottom:35px;
+
+    display:flex;
+
+    align-items:center;
+
+    background:
+        radial-gradient(
+            circle at 80% 20%,
+            rgba(139,108,255,.32),
+            transparent 35%
+        ),
+        linear-gradient(
+            135deg,
+            #1e1930,
+            #101015
+        );
+}
+
+.hero h2{
+    font-size:32px;
+
+    margin-bottom:10px;
+}
+
+.hero p{
+    color:#aaa;
+
+    max-width:650px;
+
+    margin-bottom:20px;
+}
+
+/* ================= SONGS ================= */
+
+.section-header{
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+    margin-bottom:15px;
+}
+
+.song-row{
+    display:flex;
+
+    gap:18px;
+
+    overflow-x:auto;
+
+    padding-bottom:10px;
+}
+
+.song-card{
+    min-width:190px;
+
+    width:190px;
+
+    padding:12px;
+
+    border-radius:18px;
+
+    border:1px solid var(--border);
+
+    background:var(--panel);
+
+    color:var(--text);
+
+    text-align:left;
+
+    cursor:pointer;
+
+    appearance:none;
+
+    -webkit-appearance:none;
+
+    outline:none;
+
+    transition:.2s;
+}
+
+.song-card:hover{
+    transform:translateY(-5px);
+
+    border-color:var(--accent);
+}
+
+.song-card:active{
+    transform:scale(.98);
+}
+
+.cover{
+    width:100%;
+
+    aspect-ratio:1;
+
+    border-radius:13px;
+
+    margin-bottom:12px;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    font-size:48px;
+
+    background:
+        linear-gradient(
+            135deg,
+            #3a2860,
+            #15131c
+        );
+}
+
+.song-name{
+    font-weight:900;
+
+    white-space:nowrap;
+
+    overflow:hidden;
+
+    text-overflow:ellipsis;
+}
+
+.artist{
+    color:var(--muted);
+
+    font-size:13px;
+
+    margin-top:5px;
+
+    white-space:nowrap;
+
+    overflow:hidden;
+
+    text-overflow:ellipsis;
+}
+
+/* ================= SONG PAGE ================= */
+
+.song-top{
+    display:flex;
+
+    align-items:flex-end;
+
+    gap:32px;
+
+    padding:30px;
+
+    border-radius:25px;
+
+    border:1px solid var(--border);
+
+    background:
+        radial-gradient(
+            circle at 80% 10%,
+            rgba(139,108,255,.3),
+            transparent 35%
+        ),
+        var(--panel);
+
+    margin-bottom:20px;
+}
+
+.large-cover{
+    width:255px;
+
+    height:255px;
+
+    flex-shrink:0;
+
+    border-radius:22px;
+
+    display:flex;
+
+    align-items:center;
+    justify-content:center;
+
+    font-size:90px;
+
+    background:
+        linear-gradient(
+            135deg,
+            #452d70,
+            #17131d
+        );
+}
+
+.song-info h1{
+    font-size:46px;
+
+    margin-bottom:8px;
+
+    overflow-wrap:anywhere;
+}
+
+.big-artist{
+    color:var(--muted);
+
+    font-size:18px;
+
+    margin-bottom:20px;
+}
+
+.song-actions{
+    display:flex;
+
+    flex-wrap:wrap;
+
+    gap:9px;
+}
+
+.like-button{
+    background:#292932;
+}
+
+.like-button.liked{
+    background:#e73768;
+}
+
+.back-button{
+    background:var(--panel2);
+
+    border:1px solid var(--border);
+
+    margin-bottom:18px;
+}
+
+.song-tabs{
+    display:flex;
+
+    gap:8px;
+
+    margin-bottom:16px;
+}
+
+.song-tab{
+    border:1px solid var(--border);
+
+    background:var(--panel);
+
+    color:var(--muted);
+
+    border-radius:11px;
+
+    padding:12px 18px;
+
+    cursor:pointer;
+
+    font-weight:bold;
+}
+
+.song-tab.active{
+    background:var(--accent);
+
+    border-color:var(--accent);
+
+    color:white;
+}
+
+.song-content{
+    min-height:190px;
+
+    padding:25px;
+
+    border-radius:20px;
+
+    border:1px solid var(--border);
+
+    background:var(--panel);
+}
+
+.description{
+    color:#c7c7cf;
+
+    line-height:1.7;
+}
+
+.comments-locked{
+    text-align:center;
+
+    padding:45px 10px;
+
+    color:var(--muted);
+
+    font-size:18px;
+
+    font-weight:900;
+}
+
+/* ================= STATS ================= */
+
+.stats-grid{
+    display:grid;
+
+    grid-template-columns:
+        repeat(3,1fr);
+
+    gap:18px;
+}
+
+.stat-card{
+    padding:25px;
+
+    border-radius:20px;
+
+    background:var(--panel);
+
+    border:1px solid var(--border);
+}
+
+.stat-icon{
+    font-size:28px;
+}
+
+.stat-number{
+    font-size:30px;
+
+    font-weight:900;
+
+    margin-top:12px;
+}
+
+.stat-label{
+    color:var(--muted);
+
+    margin-top:5px;
+}
+
+/* ================= UNLOCKS ================= */
+
+.unlock-box{
+    margin-top:25px;
+
+    padding:25px;
+
+    border-radius:22px;
+
+    background:var(--panel);
+
+    border:1px solid var(--border);
+}
+
+.progress{
+    width:100%;
+
+    height:11px;
+
+    margin:17px 0;
+
+    background:#292930;
+
+    border-radius:20px;
+
+    overflow:hidden;
+}
+
+.progress-fill{
+    width:0%;
+
+    height:100%;
+
+    background:var(--accent);
+
+    transition:.3s;
+}
+
+.unlock-time{
+    font-size:22px;
+
+    font-weight:900;
+}
+
+/* ================= PROFILE ================= */
+
+.profile-card{
+    display:flex;
+
+    align-items:center;
+
+    gap:20px;
+
+    padding:28px;
+
+    border-radius:22px;
+
+    border:1px solid var(--border);
+
+    background:var(--panel);
+}
+
+/* ================= THEMES ================= */
+
+.theme-grid{
+    display:grid;
+
+    grid-template-columns:
+        repeat(
+            auto-fit,
+            minmax(205px,1fr)
+        );
+
+    gap:18px;
+}
+
+.theme-card{
+    padding:25px;
+
+    border-radius:20px;
+
+    border:1px solid var(--border);
+
+    background:var(--panel);
+
+    cursor:pointer;
+
+    transition:.2s;
+}
+
+.theme-card:hover{
+    transform:translateY(-5px);
+
+    border-color:var(--accent);
+}
+
+.theme-card.locked{
+    opacity:.45;
+}
+
+.theme-icon{
+    font-size:42px;
+
+    margin-bottom:14px;
+}
+
+/* ================= ORANGE ================= */
+
+body.orange{
+    --bg:#100b06;
+    --sidebar:#110b06;
+    --panel:#19110a;
+    --panel2:#26170c;
+    --border:#4a2b13;
+    --text:#fff;
+    --muted:#b9a79a;
+    --accent:#ff7a00;
+}
+
+/* ================= WHITE ================= */
+
+body.white{
+    --bg:#eeeeef;
+    --sidebar:#f7f7f8;
+    --panel:#ffffff;
+    --panel2:#e8e8eb;
+    --border:#d5d5db;
+    --text:#111;
+    --muted:#666670;
+    --accent:#674dcc;
+}
+
+body.white .player{
+    background:rgba(255,255,255,.97);
+}
+
+body.white .controls button{
+    color:#111;
+}
+
+/* ================= NEON ================= */
+
+body.neon{
+    --bg:#030006;
+    --sidebar:#050008;
+    --panel:#0d0014;
+    --panel2:#170020;
+    --border:#62006e;
+    --text:#fff;
+    --muted:#d27ce0;
+    --accent:#ff00e6;
+}
+
+body.neon .button,
+body.neon .play-button{
+    box-shadow:
+        0 0 22px
+        rgba(255,0,230,.55);
+}
+
+body.neon .song-card:hover,
+body.neon .theme-card:hover{
+    box-shadow:
+        0 0 25px
+        rgba(255,0,230,.28);
+}
+
+/* ================= GREEN ================= */
+
+body.green{
+    --bg:#061008;
+    --sidebar:#08150a;
+    --panel:#0d1c10;
+    --panel2:#142719;
+    --border:#214b29;
+    --text:#f4fff5;
+    --muted:#91ae96;
+    --accent:#31a84b;
+}
+
+/* ================= CAT ================= */
+
+body.cat{
+    --bg:#0e0a10;
+    --sidebar:#130d16;
+    --panel:#1b121f;
+    --panel2:#28172e;
+    --border:#57355f;
+    --text:#fff8ff;
+    --muted:#c3a9c8;
+    --accent:#ff78d1;
+}
+
+body.cat .cover{
+    background:
+        radial-gradient(
+            circle at 30% 30%,
+            #ff9de0,
+            transparent 20%
+        ),
+        linear-gradient(
+            135deg,
+            #5b275f,
+            #211226
+        );
+}
+
+body.cat .button,
+body.cat .play-button{
+    box-shadow:
+        0 0 20px
+        rgba(255,120,209,.38);
+}
+
+/* ================= PLAYER ================= */
+
+.player{
+    position:fixed;
+
+    left:245px;
+    right:0;
+    bottom:0;
+
+    height:90px;
+
+    padding:13px 28px;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:space-between;
+
+    background:rgba(14,14,19,.97);
+
+    border-top:1px solid var(--border);
+
+    z-index:500;
+}
+
+.now-playing{
+    display:flex;
+
+    align-items:center;
+
+    gap:12px;
+
+    min-width:240px;
+}
+
+.mini-cover{
+    width:55px;
+    height:55px;
+
+    border-radius:11px;
+
+    display:flex;
+
+    align-items:center;
+    justify-content:center;
+
+    font-size:22px;
+
+    background:
+        linear-gradient(
+            135deg,
+            #382761,
+            #15131c
+        );
+}
+
+.controls{
+    display:flex;
+
+    align-items:center;
+}
+
+.controls button{
+    border:0;
+
+    background:none;
+
+    color:white;
+
+    cursor:pointer;
+
+    font-size:20px;
+
+    margin:0 7px;
+}
+
+.play-button{
+    width:46px;
+
+    height:46px;
+
+    border-radius:50%;
+
+    background:var(--accent)!important;
+}
+
+.player-bar{
+    width:230px;
+
+    height:4px;
+
+    background:#292932;
+
+    border-radius:20px;
+
+    overflow:hidden;
+}
+
+.player-fill{
+    width:0%;
+
+    height:100%;
+
+    background:var(--accent);
+}
+
+/* ================= YOUTUBE ================= */
+
+.youtube{
+    display:none;
+
+    position:fixed;
+
+    right:25px;
+    bottom:105px;
+
+    width:400px;
+    height:225px;
+
+    border-radius:16px;
+
+    overflow:hidden;
+
+    border:1px solid var(--border);
+
+    box-shadow:
+        0 20px 70px
+        rgba(0,0,0,.6);
+
+    z-index:450;
+}
+
+.youtube iframe{
+    width:100%;
+    height:100%;
+
+    border:0;
+}
+
+/* ================= TOAST ================= */
+
+.toast{
+    display:none;
+
+    position:fixed;
+
+    right:25px;
+    bottom:105px;
+
+    padding:15px 20px;
+
+    border-radius:13px;
+
+    background:#191920;
+
+    border:1px solid #33333e;
+
+    color:white;
+
+    z-index:900;
+}
+
+
+/* ================= MOBILE ================= */
+
+@media(max-width:850px){
+
+    .sidebar{
+        width:72px;
+
+        padding:15px 8px;
+    }
+
+    .logo{
+        text-align:center;
+
+        padding:0;
+
+        font-size:21px;
+    }
+
+    .logo span,
+    .nav-title{
+        display:none;
+    }
+
+    .nav button{
+        text-align:center;
+
+        font-size:19px;
+    }
+
+    .nav button span{
+        width:auto;
+    }
+
+    .main{
+        margin-left:72px;
+
+        padding:20px 18px 120px;
+    }
+
+    .player{
+        left:72px;
+    }
+
+    .search-top{
+        width:190px;
+    }
+
+    .stats-grid{
+        grid-template-columns:1fr;
+    }
+
+    .player-bar{
+        display:none;
+    }
+
+    .song-top{
+        flex-direction:column;
+
+        align-items:flex-start;
+    }
+
+    .large-cover{
+        width:210px;
+        height:210px;
+    }
+
+    .youtube{
+        width:290px;
+        height:163px;
+
+        right:10px;
+    }
+
+}
+</style>
+</head>
+
+<body>
+
+<!-- =====================================================
+AUTH SCREEN
+===================================================== -->
+
+<div class="auth-screen" id="authScreen">
+
+    <div class="auth-box">
+
+        <div class="auth-logo">
+            🎵 <span>Musix</span>
+        </div>
+
+        <div class="auth-text" id="authText">
+            Create your Musix account.
+        </div>
+
+        <div class="auth-error" id="authError">
+        </div>
+
+        <input class="input" id="usernameInput" placeholder="Username" maxlength="30">
+
+        <input class="input" id="passwordInput" type="password" placeholder="Password">
+
+        <button type="button" class="button auth-button" id="authButton" onclick="authAction()">
+
+            Create Account
+
+        </button>
+
+        <div class="switch">
+
+            <span id="switchText">
+                Already have an account?
+            </span>
+
+            <button type="button" id="switchButton" onclick="switchAuth()">
+
+                Login
+
+            </button>
+
+        </div>
+
+    </div>
+
+</div>
+
+
+<!-- =====================================================
+APP
+===================================================== -->
+
+<div class="app" id="app">
+
+<aside class="sidebar">
+
+    <div class="logo">
+        🎵 <span>Musix</span>
+    </div>
+
+
+    <div class="nav">
+
+        <div class="nav-title">
+            Discover
+        </div>
+
+
+        <button type="button" class="active" onclick="showPage(&#39;home&#39;,this)">
+            <span>🏠</span>
+            Home
+        </button>
+
+
+        <button type="button" onclick="showPage(&#39;search&#39;,this)">
+            <span>🔍</span>
+            Search
+        </button>
+
+
+        <button type="button" onclick="showPage(&#39;mix&#39;,this)">
+            <span>🤖</span>
+            Musix Mix
+        </button>
+
+
+        <button type="button" onclick="showPage(&#39;radio&#39;,this)">
+            <span>📻</span>
+            Radio
+        </button>
+
+
+        <div class="nav-title">
+            Your Music
+        </div>
+
+
+        <button type="button" onclick="showPage(&#39;stats&#39;,this)">
+            <span>🏆</span>
+            Stats
+        </button>
+
+
+        <button type="button" onclick="showPage(&#39;favorites&#39;,this)">
+            <span>❤️</span>
+            Favorites
+        </button>
+
+
+        <div class="nav-title">
+            Account
+        </div>
+
+
+        <button type="button" onclick="showPage(&#39;profile&#39;,this)">
+            <span>👤</span>
+            Profile
+        </button>
+
+
+        <button type="button" onclick="showPage(&#39;themes&#39;,this)">
+            <span>🎨</span>
+            Themes
+        </button>
+
+
+        <button type="button" onclick="logout()">
+            <span>🚪</span>
+            Logout
+        </button>
+
+    </div>
+
+</aside>
+
+
+<main class="main">
+
+
+<!-- TOPBAR -->
+
+<div class="topbar">
+
+    <input class="search-top" id="topSearch" placeholder="🔍 Search Musix..." onkeydown="topSearch(event)">
+
+
+    <div class="user-mini">
+
+        <div class="avatar" id="topAvatar">
+            M
+        </div>
+
+        <span id="topUsername">
+            Musix
+        </span>
+
+    </div>
+
+</div>
+
+
+<!-- =====================================================
+HOME
+===================================================== -->
+
+<section class="page active" id="home">
+
+    <h1 class="title">
+        Welcome! 👋
+    </h1>
+
+    <p class="subtitle">
+        Discover something you'll love.
+    </p>
+
+
+    <div class="hero">
+
+        <div>
+
+            <h2>
+                🎧 Welcome to Musix
+            </h2>
+
+            <p>
+                Discover songs, explore artists,
+                like music and unlock special themes.
+            </p>
+
+            <button type="button" class="button" onclick="showPage(&#39;mix&#39;)">
+
+                ✨ Open Musix Mix
+
+            </button>
+
+        </div>
+
+    </div>
+
+
+    <div class="section-header">
+        <h2>🔥 Trending</h2>
+    </div>
+
+    <div class="song-row" id="trending">
+    </div>
+
+
+    <br><br>
+
+
+    <div class="section-header">
+        <h2>⭐ Recommended for You</h2>
+    </div>
+
+    <div class="song-row" id="recommended">
+    </div>
+
+
+    <br><br>
+
+
+    <div class="section-header">
+        <h2>🆕 New Releases</h2>
+    </div>
+
+    <div class="song-row" id="newReleases">
+    </div>
+
+
+    <br><br>
+
+
+    <div class="section-header">
+        <h2>🎧 Recently Played</h2>
+    </div>
+
+    <div class="song-row" id="recent">
+    </div>
+
+</section>
+
+
+<!-- SEARCH -->
+
+<section class="page" id="search">
+
+    <h1 class="title">
+        🔍 Search
+    </h1>
+
+    <p class="subtitle">
+        Search songs and artists.
+    </p>
+
+    <input class="input" id="searchInput" placeholder="Search Musix..." oninput="searchMusic()">
+
+
+    <div class="search-results" id="searchResults">
+    </div>
+
+</section>
+
+
+<!-- MIX -->
+
+<section class="page" id="mix">
+
+    <h1 class="title">
+        🤖 Musix Mix
+    </h1>
+
+    <p class="subtitle">
+        Automatically generated recommendations.
+    </p>
+
+
+    <div class="hero">
+
+        <div>
+
+            <h2>
+                ✨ Made for you
+            </h2>
+
+            <p>
+                Generate a randomized Musix mix.
+            </p>
+
+            <button type="button" class="button" onclick="generateMix()">
+
+                🔀 Generate Mix
+
+            </button>
+
+        </div>
+
+    </div>
+
+
+    <div class="song-row" id="mixResults">
+    </div>
+
+</section>
+
+
+<!-- RADIO -->
+
+<section class="page" id="radio">
+
+    <h1 class="title">
+        📻 Radio
+    </h1>
+
+    <p class="subtitle">
+        Create an endless station based on music.
+    </p>
+
+
+    <div class="unlock-box">
+
+        <h2>
+            📻 Start Radio
+        </h2>
+
+        <br>
+
+        <input class="input" id="radioInput" placeholder="Song or artist...">
+
+        <button type="button" class="button" onclick="startRadio()">
+
+            ▶ Start Radio
+
+        </button>
+
+        <div id="radioStatus"></div>
+
+    </div>
+
+</section>
+
+
+<!-- STATS -->
+
+<section class="page" id="stats">
+
+    <h1 class="title">
+        🏆 Listening Stats
+    </h1>
+
+    <p class="subtitle">
+        Track your Musix progress.
+    </p>
+
+
+    <div class="stats-grid">
+
+        <div class="stat-card">
+
+            <div class="stat-icon">
+                ⏱️
+            </div>
+
+            <div class="stat-number" id="minutesStat">
+                0
+            </div>
+
+            <div class="stat-label">
+                Minutes listened
+            </div>
+
+        </div>
+
+
+        <div class="stat-card">
+
+            <div class="stat-icon">
+                🎤
+            </div>
+
+            <div class="stat-number" id="topArtist">
+                —
+            </div>
+
+            <div class="stat-label">
+                Top artist
+            </div>
+
+        </div>
+
+
+        <div class="stat-card">
+
+            <div class="stat-icon">
+                🎵
+            </div>
+
+            <div class="stat-number" id="topSong">
+                —
+            </div>
+
+            <div class="stat-label">
+                Top song
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <!-- NEON -->
+
+    <div class="unlock-box">
+
+        <h2>
+            ⚡ Neon
+        </h2>
+
+        <p class="artist">
+            10 total listening hours for everyone.
+            welcometomusix gets it FREE.
+        </p>
+
+        <div class="progress">
+
+            <div class="progress-fill" id="neonProgress">
+            </div>
+
+        </div>
+
+        <div class="unlock-time" id="neonTime">
+            0 / 10 hours
+        </div>
+
+    </div>
+
+
+    <!-- GREEN -->
+
+    <div class="unlock-box">
+
+        <h2>
+            🟢 Dark Green
+        </h2>
+
+        <p class="artist">
+            2 total listening hours,
+            or FREE for welcometomusix.
+        </p>
+
+        <div class="progress">
+
+            <div class="progress-fill" id="greenProgress">
+            </div>
+
+        </div>
+
+        <div class="unlock-time" id="greenTime">
+            0 / 2 hours
+        </div>
+
+    </div>
+
+
+    <!-- CAT -->
+
+    <div class="unlock-box">
+
+        <h2>
+            🐱 Cat
+        </h2>
+
+        <p class="artist">
+            Neon + 1 hour listening to another artist.
+            welcometomusix gets Cat FREE.
+        </p>
+
+        <div class="progress">
+
+            <div class="progress-fill" id="catProgress">
+            </div>
+
+        </div>
+
+        <div class="unlock-time" id="catTime">
+            🔒 Neon required
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- FAVORITES -->
+
+<section class="page" id="favorites">
+
+    <h1 class="title">
+        ❤️ Favorites
+    </h1>
+
+    <p class="subtitle">
+        Your liked songs.
+    </p>
+
+
+    <div class="song-row" id="favoriteSongs">
+    </div>
+
+</section>
+
+
+<!-- PROFILE -->
+
+<section class="page" id="profile">
+
+    <h1 class="title">
+        👤 Profile
+    </h1>
+
+    <p class="subtitle">
+        Your Musix profile.
+    </p>
+
+
+    <div class="profile-card">
+
+        <div class="big-avatar" id="bigAvatar">
+            M
+        </div>
+
+        <div>
+
+            <h2 id="profileUsername">
+                Musix User
+            </h2>
+
+            <p class="artist" id="profileHandle">
+                @musix
+            </p>
+
+            <p class="artist" style="margin-top:12px">
+                🎵 Musix listener
+            </p>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- THEMES -->
+
+<section class="page" id="themes">
+
+    <h1 class="title">
+        🎨 Themes
+    </h1>
+
+    <p class="subtitle">
+        Unlock permanent Musix themes.
+    </p>
+
+
+    <div class="theme-grid">
+
+
+        <div class="theme-card" onclick="tryTheme(&#39;black&#39;)">
+
+            <div class="theme-icon">
+                🌑
+            </div>
+
+            <h2>
+                Black
+            </h2>
+
+            <p class="artist">
+                Free
+            </p>
+
+        </div>
+
+
+        <div class="theme-card" onclick="tryTheme(&#39;orange&#39;)">
+
+            <div class="theme-icon">
+                🟠
+            </div>
+
+            <h2>
+                Orange
+            </h2>
+
+            <p class="artist">
+                Free
+            </p>
+
+        </div>
+
+
+        <div class="theme-card" onclick="tryTheme(&#39;white&#39;)">
+
+            <div class="theme-icon">
+                ☀️
+            </div>
+
+            <h2>
+                White
+            </h2>
+
+            <p class="artist">
+                Free
+            </p>
+
+        </div>
+
+
+        <div class="theme-card locked" id="neonCard" onclick="tryTheme(&#39;neon&#39;)">
+
+            <div class="theme-icon">
+                ⚡
+            </div>
+
+            <h2>
+                Neon
+            </h2>
+
+            <p class="artist" id="neonStatus">
+                🔒 10 hours
+            </p>
+
+        </div>
+
+
+        <div class="theme-card locked" id="greenCard" onclick="tryTheme(&#39;green&#39;)">
+
+            <div class="theme-icon">
+                🟢
+            </div>
+
+            <h2>
+                Dark Green
+            </h2>
+
+            <p class="artist" id="greenStatus">
+                🔒 2 hours
+            </p>
+
+        </div>
+
+
+        <div class="theme-card locked" id="catCard" onclick="tryTheme(&#39;cat&#39;)">
+
+            <div class="theme-icon">
+                🐱
+            </div>
+
+            <h2>
+                Cat
+            </h2>
+
+            <p class="artist" id="catStatus">
+                🔒 Neon + 1 hour
+            </p>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- SONG DETAILS -->
+
+<section class="page" id="songPage">
+
+    <button type="button" class="button back-button" onclick="goBack()">
+
+        ← Back
+
+    </button>
+
+
+    <div class="song-top">
+
+        <div class="large-cover" id="largeCover">
+            🎵
+        </div>
+
+
+        <div class="song-info">
+
+            <h1 id="songTitle">
+                Song
+            </h1>
+
+            <div class="big-artist" id="songArtist">
+                Artist
+            </div>
+
+
+            <div class="song-actions">
+
+                <button type="button" class="button" onclick="playCurrentSong()">
+
+                    ▶ Play
+
+                </button>
+
+
+                <button type="button" class="button like-button" id="likeButton" onclick="toggleLike()">
+
+                    ❤️ Like Song
+
+                </button>
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <div class="song-tabs">
+
+        <button type="button" class="song-tab active" id="descriptionTab" onclick="songTab(&#39;description&#39;)">
+
+            📝 Description
+
+        </button>
+
+
+        <button type="button" class="song-tab" id="commentsTab" onclick="songTab(&#39;comments&#39;)">
+
+            💬 Comments
+
+        </button>
+
+    </div>
+
+
+    <div class="song-content" id="songContent">
+    </div>
+
+</section>
+
+</main>
+
+
+<!-- PLAYER -->
+
+<div class="player">
+
+    <div class="now-playing">
+
+        <div class="mini-cover" id="miniCover">
+            🎵
+        </div>
+
+        <div>
+
+            <strong id="nowSong">
+                Nothing Playing
+            </strong>
+
+            <div class="artist" id="nowArtist">
+                Choose a song
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <div class="controls">
+
+        <button type="button" onclick="previousSong()">
+
+            ⏮
+
+        </button>
+
+
+        <button type="button" class="play-button" id="playButton" onclick="togglePlay()">
+
+            ▶
+
+        </button>
+
+
+        <button type="button" onclick="nextSong()">
+
+            ⏭
+
+        </button>
+
+    </div>
+
+
+    <div class="player-bar">
+
+        <div class="player-fill" id="playerFill">
+        </div>
+
+    </div>
+
+</div>
+
+
+<!-- YOUTUBE PLAYER -->
+
+<div class="youtube" id="youtube">
+
+    <iframe id="youtubeFrame" allow="autoplay; encrypted-media" allowfullscreen="" src="./saved_resource(1).html">
+    </iframe>
+
+</div>
+
+
+<div class="toast" id="toast">
+</div>
+
+
+</div>
+
+
+<script>
+
+/* =====================================================
+MUSIC DATABASE
+===================================================== */
+
+const music = [
+
+    {
+        name:"Hey Trouble Kid",
+        artist:"MrGhoulmusic",
+        icon:"🔥",
+        youtube:"3u5bY0-eKSU",
+        start:0,
+        description:
+        "Hey Trouble Kid by MrGhoulmusic — an energetic track featured on Musix."
+    },
+
+    {
+        name:"Super Great",
+        artist:"MrGhoulmusic",
+        icon:"⭐",
+        youtube:"cA_i7DGzWO8",
+        start:0,
+        description:
+        "Super Great by MrGhoulmusic — a bright and upbeat track featured on Musix."
+    },
+
+    {
+        name:"Electric Dreams",
+        artist:"MrGhoulmusic",
+        icon:"⚡",
+        youtube:"iE3Avr1xCMU",
+        start:0,
+        description:
+        "Electric Dreams by MrGhoulmusic — an electronic-inspired track for late-night listening."
+    },
+
+    {
+        name:"Ulma Loma Heat",
+        artist:"random tracks",
+        icon:"🔥",
+        youtube:"59gkvPs4oDI",
+        start:0,
+        description:
+        "Ulma Loma Heat by random tracks."
+    },
+
+    {
+        name:"Some SONG!!!!!!",
+        artist:"OfficialRopes",
+        icon:"🎵",
+        youtube:"aLJJ1zNP-Ss",
+        start:10,
+        description:
+        "Some SONG!!!!!! by OfficialRopes. Musix starts playback at 10 seconds."
+    },
+
+    {
+        name:"chill beats bro",
+        artist:"WelcomeToMusix",
+        icon:"🌊",
+        youtube:"CmtwlDeUnBA",
+        start:0,
+        description:
+        "chill beats bro by WelcomeToMusix."
+    },
+
+    {
+        name:"compared (slowed)",
+        artist:"NAHRAPS",
+        icon:"🐌",
+        youtube:"CmtwlDeUnBA",
+        start:0,
+        description:
+        "compared (slowed) by NAHRAPS."
+    },
+
+    {
+        name:"compared | OFFICIAL MUSIC VIDEO",
+        artist:"NAHRAPS2",
+        icon:"🎬",
+        youtube:"",
+        start:0,
+        description:
+        "compared | OFFICIAL MUSIC VIDEO by NAHRAPS2."
+    },
+
+    {
+        name:"Neon Nights",
+        artist:"Musix Originals",
+        icon:"🌃",
+        youtube:"",
+        start:0,
+        description:
+        "A neon-inspired Musix Original."
+    },
+
+    {
+        name:"Digital Sunrise",
+        artist:"Musix Originals",
+        icon:"🌅",
+        youtube:"",
+        start:0,
+        description:
+        "A bright digital sunrise-inspired Musix Original."
+    },
+
+    {
+        name:"Pixel Dreams",
+        artist:"Musix Originals",
+        icon:"🟪",
+        youtube:"",
+        start:0,
+        description:
+        "A dreamy digital track inspired by colorful pixels."
+    },
+
+    {
+        name:"Midnight Waves",
+        artist:"Musix Originals",
+        icon:"🌊",
+        youtube:"",
+        start:0,
+        description:
+        "Smooth midnight waves for relaxing."
+    },
+
+    {
+        name:"Skyline",
+        artist:"Musix Originals",
+        icon:"🏙️",
+        youtube:"",
+        start:0,
+        description:
+        "A city-at-night inspired track."
+    },
+
+    {
+        name:"Afterglow",
+        artist:"Musix Originals",
+        icon:"✨",
+        youtube:"",
+        start:0,
+        description:
+        "A soft afterglow-inspired track."
+    },
+
+    {
+        name:"Infinite",
+        artist:"Musix Originals",
+        icon:"♾️",
+        youtube:"",
+        start:0,
+        description:
+        "A mysterious journey through an infinite soundscape."
+    },
+
+    {
+        name:"Cloud Nine",
+        artist:"Musix Originals",
+        icon:"☁️",
+        youtube:"",
+        start:0,
+        description:
+        "A light and dreamy Musix Original."
+    },
+
+    {
+        name:"Night Drive",
+        artist:"Musix Originals",
+        icon:"🚗",
+        youtube:"",
+        start:0,
+        description:
+        "A nighttime driving-inspired instrumental."
+    },
+
+    {
+        name:"Cosmic Rain",
+        artist:"LunaWave",
+        icon:"🌌",
+        youtube:"",
+        start:0,
+        description:
+        "A cosmic atmospheric track from LunaWave."
+    },
+
+    {
+        name:"Moonlight",
+        artist:"PixelSky",
+        icon:"🌙",
+        youtube:"",
+        start:0,
+        description:
+        "A calm moonlight-inspired song from PixelSky."
+    },
+
+    {
+        name:"Starlight",
+        artist:"NovaBeat",
+        icon:"🌟",
+        youtube:"",
+        start:0,
+        description:
+        "A bright electronic track from NovaBeat."
+    },
+
+    {
+        name:"Ocean Lights",
+        artist:"DreamEcho",
+        icon:"🌊",
+        youtube:"",
+        start:0,
+        description:
+        "An atmospheric ocean-inspired track from DreamEcho."
+    }
+
+];
+
+
+/* =====================================================
+STATE
+===================================================== */
+
+let authMode = "create";
+
+let currentUser = null;
+
+let currentIndex = -1;
+
+let previousPage = "home";
+
+let isPlaying = false;
+
+let listeningSeconds = 0;
+
+let otherArtistSeconds = 0;
+
+let songStats = {};
+
+let artistStats = {};
+
+let recentlyPlayed = [];
+
+let likedSongs = [];
+
+
+/* =====================================================
+ACCOUNT STORAGE
+===================================================== */
+
+function getAccounts(){
+
+    try{
+
+        return JSON.parse(
+            localStorage.getItem(
+                "musixAccounts"
+            ) || "{}"
+        );
+
+    }catch{
+
+        return {};
+
+    }
+
+}
+
+
+function saveAccounts(accounts){
+
+    localStorage.setItem(
+        "musixAccounts",
+        JSON.stringify(
+            accounts
+        )
+    );
+
+}
+
+
+/* =====================================================
+AUTH MODE
+===================================================== */
+
+function switchAuth(){
+
+    authMode =
+        authMode === "create"
+        ? "login"
+        : "create";
+
+
+    document.getElementById(
+        "authButton"
+    ).innerText =
+        authMode === "create"
+        ? "Create Account"
+        : "Login";
+
+
+    document.getElementById(
+        "authText"
+    ).innerText =
+        authMode === "create"
+        ? "Create your Musix account."
+        : "Welcome back to Musix.";
+
+
+    document.getElementById(
+        "switchText"
+    ).innerText =
+        authMode === "create"
+        ? "Already have an account?"
+        : "Don't have an account?";
+
+
+    document.getElementById(
+        "switchButton"
+    ).innerText =
+        authMode === "create"
+        ? "Login"
+        : "Create Account";
+
+
+    clearError();
+
+}
+
+
+/* =====================================================
+AUTH
+===================================================== */
+
+function authAction(){
+
+    const username =
+        document.getElementById(
+            "usernameInput"
+        ).value.trim();
+
+
+    const password =
+        document.getElementById(
+            "passwordInput"
+        ).value;
+
+
+    clearError();
+
+
+    if(
+        !username ||
+        !password
+    ){
+
+        showError(
+            "Enter a username and password."
+        );
+
+        return;
+
+    }
+
+
+    if(
+        username.length < 3
+    ){
+
+        showError(
+            "Username must be at least 3 characters."
+        );
+
+        return;
+
+    }
+
+
+    const key =
+        username.toLowerCase();
+
+
+    const accounts =
+        getAccounts();
+
+
+    if(
+        authMode === "create"
+    ){
+
+        if(accounts[key]){
+
+            showError(
+                "That username is already taken."
+            );
+
+            return;
+
+        }
+
+
+        /*
+        welcometomusix gets ALL unlocks
+        immediately.
+
+        This includes:
+        Neon
+        Dark Green
+        Cat
+        and any future unlocks.
+        */
+
+        accounts[key] = {
+
+            username: username,
+
+            password: password,
+
+            listeningSeconds: 0,
+
+            otherArtistSeconds: 0,
+
+            neonUnlocked:
+                key === "welcometomusix",
+
+            greenUnlocked:
+                key === "welcometomusix",
+
+            catUnlocked:
+                key === "welcometomusix",
+
+            songStats: {},
+
+            artistStats: {},
+
+            recentlyPlayed: [],
+
+            likedSongs: []
+
+        };
+
+
+        saveAccounts(accounts);
+
+
+        localStorage.setItem(
+            "musixCurrentUser",
+            key
+        );
+
+
+        startApp(key);
+
+
+        return;
+
+    }
+
+
+    const account =
+        accounts[key];
+
+
+    if(!account){
+
+        showError(
+            "That account doesn't exist."
+        );
+
+        return;
+
+    }
+
+
+    if(
+        account.password !==
+        password
+    ){
+
+        showError(
+            "Incorrect password."
+        );
+
+        return;
+
+    }
+
+
+    /*
+    Make sure the VIP account always
+    has all its free unlocks.
+    */
+
+    if(
+        key === "welcometomusix"
+    ){
+
+        account.neonUnlocked =
+            true;
+
+        account.greenUnlocked =
+            true;
+
+        account.catUnlocked =
+            true;
+
+        accounts[key] =
+            account;
+
+        saveAccounts(accounts);
+
+    }
+
+
+    localStorage.setItem(
+        "musixCurrentUser",
+        key
+    );
+
+
+    startApp(key);
+
+}
+
+
+/* =====================================================
+ERROR
+===================================================== */
+
+function showError(message){
+
+    document.getElementById(
+        "authError"
+    ).innerText =
+        message;
+
+}
+
+
+function clearError(){
+
+    document.getElementById(
+        "authError"
+    ).innerText =
+        "";
+
+}
+
+
+/* =====================================================
+START APP
+===================================================== */
+
+function startApp(key){
+
+    const accounts =
+        getAccounts();
+
+
+    const account =
+        accounts[key];
+
+
+    if(!account){
+
+        return;
+
+    }
+
+
+    currentUser =
+        key;
+
+
+    listeningSeconds =
+        account.listeningSeconds ||
+        0;
+
+
+    otherArtistSeconds =
+        account.otherArtistSeconds ||
+        0;
+
+
+    songStats =
+        account.songStats ||
+        {};
+
+
+    artistStats =
+        account.artistStats ||
+        {};
+
+
+    recentlyPlayed =
+        account.recentlyPlayed ||
+        [];
+
+
+    likedSongs =
+        account.likedSongs ||
+        [];
+
+
+    /*
+    VIP safety check.
+    */
+
+    if(
+        key === "welcometomusix"
+    ){
+
+        account.neonUnlocked = true;
+
+        account.greenUnlocked = true;
+
+        account.catUnlocked = true;
+
+        saveAccounts(accounts);
+
+    }
+
+
+    document.getElementById(
+        "authScreen"
+    ).style.display =
+        "none";
+
+
+    document.getElementById(
+        "app"
+    ).style.display =
+        "block";
+
+
+    document.getElementById(
+        "topUsername"
+    ).innerText =
+        account.username;
+
+
+    document.getElementById(
+        "topAvatar"
+    ).innerText =
+        account.username[0]
+        .toUpperCase();
+
+
+    document.getElementById(
+        "profileUsername"
+    ).innerText =
+        account.username;
+
+
+    document.getElementById(
+        "profileHandle"
+    ).innerText =
+        "@"+account.username;
+
+
+    document.getElementById(
+        "bigAvatar"
+    ).innerText =
+        account.username[0]
+        .toUpperCase();
+
+
+    loadHome();
+
+    loadFavorites();
+
+    updateStats();
+
+    updateAllUnlocks();
+
+    loadTheme();
+
+}
+
+
+/* =====================================================
+SAVE ACCOUNT
+===================================================== */
+
+function saveAccount(){
+
+    if(!currentUser){
+
+        return;
+
+    }
+
+
+    const accounts =
+        getAccounts();
+
+
+    const account =
+        accounts[currentUser];
+
+
+    if(!account){
+
+        return;
+
+    }
+
+
+    account.listeningSeconds =
+        listeningSeconds;
+
+
+    account.otherArtistSeconds =
+        otherArtistSeconds;
+
+
+    account.songStats =
+        songStats;
+
+
+    account.artistStats =
+        artistStats;
+
+
+    account.recentlyPlayed =
+        recentlyPlayed;
+
+
+    account.likedSongs =
+        likedSongs;
+
+
+    /*
+    PERMANENT UNLOCKS
+    */
+
+    if(
+        listeningSeconds >=
+        36000
+    ){
+
+        account.neonUnlocked =
+            true;
+
+    }
+
+
+    if(
+        listeningSeconds >=
+        7200
+    ){
+
+        account.greenUnlocked =
+            true;
+
+    }
+
+
+    if(
+        account.neonUnlocked &&
+        otherArtistSeconds >=
+        3600
+    ){
+
+        account.catUnlocked =
+            true;
+
+    }
+
+
+    /*
+    VIP ALWAYS GETS EVERYTHING FREE.
+    */
+
+    if(
+        currentUser ===
+        "welcometomusix"
+    ){
+
+        account.neonUnlocked =
+            true;
+
+        account.greenUnlocked =
+            true;
+
+        account.catUnlocked =
+            true;
+
+    }
+
+
+    saveAccounts(accounts);
+
+}
+
+
+/* =====================================================
+LOGOUT
+===================================================== */
+
+function logout(){
+
+    saveAccount();
+
+    currentUser = null;
+
+    currentIndex = -1;
+
+    isPlaying = false;
+
+
+    const frame =
+        document.getElementById(
+            "youtubeFrame"
+        );
+
+
+    if(frame){
+
+        frame.src = "";
+
+    }
+
+
+    document.getElementById(
+        "youtube"
+    ).style.display =
+        "none";
+
+
+    localStorage.removeItem(
+        "musixCurrentUser"
+    );
+
+
+    document.getElementById(
+        "app"
+    ).style.display =
+        "none";
+
+
+    document.getElementById(
+        "authScreen"
+    ).style.display =
+        "flex";
+
+}
+
+
+/* =====================================================
+NAVIGATION
+===================================================== */
+
+function showPage(
+    page,
+    button
+){
+
+    document.querySelectorAll(
+        ".page"
+    ).forEach(
+        p =>
+            p.classList.remove(
+                "active"
+            )
+    );
+
+
+    const target =
+        document.getElementById(
+            page
+        );
+
+
+    if(target){
+
+        target.classList.add(
+            "active"
+        );
+
+    }
+
+
+    if(button){
+
+        document.querySelectorAll(
+            ".nav button"
+        ).forEach(
+            b =>
+                b.classList.remove(
+                    "active"
+                )
+        );
+
+
+        button.classList.add(
+            "active"
+        );
+
+    }
+
+
+    window.scrollTo({
+        top:0,
+        behavior:"smooth"
+    });
+
+}
+
+
+/* =====================================================
+SONG CARD
+===================================================== */
+
+function songCard(
+    song,
+    index
+){
+
+    return `
+
+        <button
+            type="button"
+            class="song-card"
+            onclick="openSong(${index})">
+
+            <div class="cover">
+                ${song.icon}
+            </div>
+
+            <div class="song-name">
+                ${escapeHTML(
+                    song.name
+                )}
+            </div>
+
+            <div class="artist">
+                ${escapeHTML(
+                    song.artist
+                )}
+            </div>
+
+        </button>
+
+    `;
+
+}
+
+
+/* =====================================================
+ESCAPE
+===================================================== */
+
+function escapeHTML(value){
+
+    return String(value)
+        .replace(/&/g,"&amp;")
+        .replace(/</g,"&lt;")
+        .replace(/>/g,"&gt;")
+        .replace(/"/g,"&quot;")
+        .replace(/'/g,"&#039;");
+
+}
+
+
+/* =====================================================
+HOME
+===================================================== */
+
+function loadHome(){
+
+    const trending =
+        document.getElementById(
+            "trending"
+        );
+
+
+    trending.innerHTML = "";
+
+
+    /*
+    Your songs are included near the
+    beginning of Trending.
+    */
+
+    [
+        0,1,2,3,4,5,6,7,
+        8,9
+    ].forEach(
+        index => {
+
+            trending.innerHTML +=
+                songCard(
+                    music[index],
+                    index
+                );
+
+        }
+    );
+
+
+    const recommended =
+        document.getElementById(
+            "recommended"
+        );
+
+
+    recommended.innerHTML = "";
+
+
+    [
+        10,11,12,13,14,15,
+        4,5
+    ].forEach(
+        index => {
+
+            recommended.innerHTML +=
+                songCard(
+                    music[index],
+                    index
+                );
+
+        }
+    );
+
+
+    const releases =
+        document.getElementById(
+            "newReleases"
+        );
+
+
+    releases.innerHTML = "";
+
+
+    [
+        3,4,5,6,7,
+        16,17,18,19,20
+    ].forEach(
+        index => {
+
+            releases.innerHTML +=
+                songCard(
+                    music[index],
+                    index
+                );
+
+        }
+    );
+
+
+    loadRecent();
+
+}
+
+
+/* =====================================================
+RECENT
+===================================================== */
+
+function loadRecent(){
+
+    const box =
+        document.getElementById(
+            "recent"
+        );
+
+
+    box.innerHTML = "";
+
+
+    if(!recentlyPlayed.length){
+
+        box.innerHTML = `
+
+            <div
+                class="song-card"
+                style="cursor:default">
+
+                <div class="cover">
+                    🎧
+                </div>
+
+                <div class="song-name">
+                    Nothing yet
+                </div>
+
+                <div class="artist">
+                    Start listening!
+                </div>
+
+            </div>
+
+        `;
+
+        return;
+
+    }
+
+
+    recentlyPlayed
+    .slice(
+        0,
+        8
+    )
+    .forEach(
+        index => {
+
+            if(
+                music[index]
+            ){
+
+                box.innerHTML +=
+                    songCard(
+                        music[index],
+                        index
+                    );
+
+            }
+
+        }
+    );
+
+}
+
+
+/* =====================================================
+OPEN SONG PAGE
+===================================================== */
+
+function openSong(index){
+
+    const song =
+        music[index];
+
+
+    if(!song){
+
+        return;
+
+    }
+
+
+    const activePage =
+        document.querySelector(
+            ".page.active"
+        );
+
+
+    if(
+        activePage &&
+        activePage.id !==
+        "songPage"
+    ){
+
+        previousPage =
+            activePage.id;
+
+    }
+
+
+    currentIndex =
+        index;
+
+
+    document.getElementById(
+        "largeCover"
+    ).innerText =
+        song.icon;
+
+
+    document.getElementById(
+        "songTitle"
+    ).innerText =
+        song.name;
+
+
+    document.getElementById(
+        "songArtist"
+    ).innerText =
+        song.artist;
+
+
+    updateLikeButton();
+
+
+    songTab(
+        "description"
+    );
+
+
+    document.querySelectorAll(
+        ".page"
+    ).forEach(
+        p =>
+            p.classList.remove(
+                "active"
+            )
+    );
+
+
+    document.getElementById(
+        "songPage"
+    ).classList.add(
+        "active"
+    );
+
+
+    window.scrollTo({
+        top:0,
+        behavior:"smooth"
+    });
+
+}
+
+
+/* =====================================================
+BACK
+===================================================== */
+
+function goBack(){
+
+    document.getElementById(
+        "songPage"
+    ).classList.remove(
+        "active"
+    );
+
+
+    const page =
+        document.getElementById(
+            previousPage ||
+            "home"
+        );
+
+
+    if(page){
+
+        page.classList.add(
+            "active"
+        );
+
+    }
+
+
+    window.scrollTo({
+        top:0,
+        behavior:"smooth"
+    });
+
+}
+
+
+/* =====================================================
+SONG TABS
+===================================================== */
+
+function songTab(tab){
+
+    document.getElementById(
+        "descriptionTab"
+    ).classList.remove(
+        "active"
+    );
+
+
+    document.getElementById(
+        "commentsTab"
+    ).classList.remove(
+        "active"
+    );
+
+
+    if(
+        tab ===
+        "description"
+    ){
+
+        document.getElementById(
+            "descriptionTab"
+        ).classList.add(
+            "active"
+        );
+
+
+        const song =
+            music[currentIndex];
+
+
+        if(!song){
+
+            return;
+
+        }
+
+
+        document.getElementById(
+            "songContent"
+        ).innerHTML = `
+
+            <div class="description">
+
+                <h2 style="margin-bottom:12px">
+                    📝 Description
+                </h2>
+
+                <p>
+                    ${escapeHTML(
+                        song.description
+                    )}
+                </p>
+
+                <br>
+
+                <p>
+                    🎤 Artist:
+                    ${escapeHTML(
+                        song.artist
+                    )}
+                </p>
+
+            </div>
+
+        `;
+
+    }else{
+
+        document.getElementById(
+            "commentsTab"
+        ).classList.add(
+            "active"
+        );
+
+
+        document.getElementById(
+            "songContent"
+        ).innerHTML = `
+
+            <div class="comments-locked">
+
+                💬
+
+                <br><br>
+
+                [COMMENTS ARE LOCKED —
+                COMMENT UPDATE IN 2 DAYS]
+
+            </div>
+
+        `;
+
+    }
+
+}
+
+
+/* =====================================================
+PLAY CURRENT
+===================================================== */
+
+function playCurrentSong(){
+
+    if(
+        currentIndex >= 0
+    ){
+
+        playSong(
+            currentIndex
+        );
+
+    }
+
+}
+
+
+/* =====================================================
+PLAY SONG
+===================================================== */
+
+function playSong(index){
+
+    const song =
+        music[index];
+
+
+    if(!song){
+
+        return;
+
+    }
+
+
+    currentIndex =
+        index;
+
+
+    isPlaying =
+        true;
+
+
+    document.getElementById(
+        "nowSong"
+    ).innerText =
+        song.name;
+
+
+    document.getElementById(
+        "nowArtist"
+    ).innerText =
+        song.artist;
+
+
+    document.getElementById(
+        "miniCover"
+    ).innerText =
+        song.icon;
+
+
+    document.getElementById(
+        "playButton"
+    ).innerText =
+        "⏸";
+
+
+    if(song.youtube){
+
+        /*
+        start=10 means
+        Some SONG!!!!!! starts at 10 seconds.
+        */
+
+        let url =
+            "https://www.youtube.com/embed/" +
+            song.youtube +
+            "?autoplay=1";
+
+
+        if(
+            Number.isFinite(
+                song.start
+            ) &&
+            song.start > 0
+        ){
+
+            url +=
+                "&start=" +
+                song.start;
+
+        }
+
+
+        document.getElementById(
+            "youtubeFrame"
+        ).src =
+            url;
+
+
+        document.getElementById(
+            "youtube"
+        ).style.display =
+            "block";
+
+    }else{
+
+        document.getElementById(
+            "youtube"
+        ).style.display =
+            "none";
+
+
+        showToast(
+            "🎵 This song doesn't have playable audio yet."
+        );
+
+    }
+
+
+    recentlyPlayed =
+        recentlyPlayed.filter(
+            i =>
+                i !== index
+        );
+
+
+    recentlyPlayed.unshift(
+        index
+    );
+
+
+    recentlyPlayed =
+        recentlyPlayed.slice(
+            0,
+            10
+        );
+
+
+    songStats[song.name] =
+        (
+            songStats[song.name] ||
+            0
+        ) + 1;
+
+
+    artistStats[song.artist] =
+        (
+            artistStats[song.artist] ||
+            0
+        ) + 1;
+
+
+    saveAccount();
+
+    loadRecent();
+
+    updateStats();
+
+}
+
+
+/* =====================================================
+PLAY / PAUSE
+===================================================== */
+
+function togglePlay(){
+
+    if(
+        currentIndex === -1
+    ){
+
+        showToast(
+            "🎵 Choose a song first!"
+        );
+
+        return;
+
+    }
+
+
+    isPlaying =
+        !isPlaying;
+
+
+    document.getElementById(
+        "playButton"
+    ).innerText =
+        isPlaying
+        ? "⏸"
+        : "▶";
+
+}
+
+
+/* =====================================================
+NEXT
+===================================================== */
+
+function nextSong(){
+
+    if(
+        currentIndex === -1
+    ){
+
+        playSong(0);
+
+        return;
+
+    }
+
+
+    currentIndex =
+        (
+            currentIndex +
+            1
+        )
+        %
+        music.length;
+
+
+    playSong(
+        currentIndex
+    );
+
+}
+
+
+/* =====================================================
+PREVIOUS
+===================================================== */
+
+function previousSong(){
+
+    if(
+        currentIndex === -1
+    ){
+
+        playSong(0);
+
+        return;
+
+    }
+
+
+    currentIndex--;
+
+
+    if(
+        currentIndex < 0
+    ){
+
+        currentIndex =
+            music.length - 1;
+
+    }
+
+
+    playSong(
+        currentIndex
+    );
+
+}
+
+
+/* =====================================================
+LIKE SONG
+===================================================== */
+
+function toggleLike(){
+
+    if(
+        currentIndex === -1
+    ){
+
+        return;
+
+    }
+
+
+    if(
+        likedSongs.includes(
+            currentIndex
+        )
+    ){
+
+        likedSongs =
+            likedSongs.filter(
+                i =>
+                    i !==
+                    currentIndex
+            );
+
+
+        showToast(
+            "💔 Removed from Favorites."
+        );
+
+    }else{
+
+        likedSongs.push(
+            currentIndex
+        );
+
+
+        showToast(
+            "❤️ Added to Favorites!"
+        );
+
+    }
+
+
+    updateLikeButton();
+
+    loadFavorites();
+
+    saveAccount();
+
+}
+
+
+function updateLikeButton(){
+
+    const button =
+        document.getElementById(
+            "likeButton"
+        );
+
+
+    if(
+        likedSongs.includes(
+            currentIndex
+        )
+    ){
+
+        button.classList.add(
+            "liked"
+        );
+
+        button.innerText =
+            "❤️ Liked";
+
+    }else{
+
+        button.classList.remove(
+            "liked"
+        );
+
+        button.innerText =
+            "❤️ Like Song";
+
+    }
+
+}
+
+
+/* =====================================================
+FAVORITES
+===================================================== */
+
+function loadFavorites(){
+
+    const box =
+        document.getElementById(
+            "favoriteSongs"
+        );
+
+
+    box.innerHTML = "";
+
+
+    if(!likedSongs.length){
+
+        box.innerHTML = `
+
+            <div
+                class="song-card"
+                style="cursor:default">
+
+                <div class="cover">
+                    ❤️
+                </div>
+
+                <div class="song-name">
+                    No favorites yet
+                </div>
+
+                <div class="artist">
+                    Like a song to save it here.
+                </div>
+
+            </div>
+
+        `;
+
+        return;
+
+    }
+
+
+    likedSongs.forEach(
+        index => {
+
+            if(
+                music[index]
+            ){
+
+                box.innerHTML +=
+                    songCard(
+                        music[index],
+                        index
+                    );
+
+            }
+
+        }
+    );
+
+}
+
+
+/* =====================================================
+LISTENING TIMER
+===================================================== */
+
+setInterval(
+    () => {
+
+        if(
+            !currentUser ||
+            !isPlaying ||
+            currentIndex === -1
+        ){
+
+            return;
+
+        }
+
+
+        const song =
+            music[currentIndex];
+
+
+        /*
+        Only count actual playable songs.
+        */
+
+        if(
+            !song ||
+            !song.youtube
+        ){
+
+            return;
+
+        }
+
+
+        listeningSeconds++;
+
+
+        /*
+        Other artist time for Cat.
+        */
+
+        if(
+            song.artist !==
+            "MrGhoulmusic"
+        ){
+
+            otherArtistSeconds++;
+
+        }
+
+
+        updateAllUnlocks();
+
+        updateStats();
+
+        saveAccount();
+
+    },
+    1000
+);
+
+
+/* =====================================================
+UNLOCK SYSTEM
+===================================================== */
+
+function updateAllUnlocks(){
+
+    if(
+        !currentUser
+    ){
+
+        return;
+
+    }
+
+
+    const accounts =
+        getAccounts();
+
+
+    const account =
+        accounts[currentUser];
+
+
+    if(
+        !account
+    ){
+
+        return;
+
+    }
+
+
+    /*
+    VIP:
+
+    EVERYTHING FREE.
+    */
+
+    if(
+        currentUser ===
+        "welcometomusix"
+    ){
+
+        account.neonUnlocked =
+            true;
+
+        account.greenUnlocked =
+            true;
+
+        account.catUnlocked =
+            true;
+
+    }
+
+
+    /*
+    NORMAL NEON:
+
+    10 hours.
+    */
+
+    if(
+        listeningSeconds >=
+        36000
+    ){
+
+        account.neonUnlocked =
+            true;
+
+    }
+
+
+    /*
+    NORMAL DARK GREEN:
+
+    2 hours.
+    */
+
+    if(
+        listeningSeconds >=
+        7200
+    ){
+
+        account.greenUnlocked =
+            true;
+
+    }
+
+
+    /*
+    NORMAL CAT:
+
+    Neon + 1 hour
+    of another artist.
+    */
+
+    if(
+        account.neonUnlocked &&
+        otherArtistSeconds >=
+        3600
+    ){
+
+        account.catUnlocked =
+            true;
+
+    }
+
+
+    saveAccounts(accounts);
+
+
+    updateThemeCards(
+        account
+    );
+
+
+    updateChallengeUI(
+        account
+    );
+
+}
+
+
+/* =====================================================
+THEME CARDS
+===================================================== */
+
+function updateThemeCards(
+    account
+){
+
+    const neonCard =
+        document.getElementById(
+            "neonCard"
+        );
+
+
+    const neonStatus =
+        document.getElementById(
+            "neonStatus"
+        );
+
+
+    if(
+        account.neonUnlocked
+    ){
+
+        neonCard.classList.remove(
+            "locked"
+        );
+
+        neonStatus.innerText =
+            "⚡ UNLOCKED — PERMANENT";
+
+    }else{
+
+        neonCard.classList.add(
+            "locked"
+        );
+
+        neonStatus.innerText =
+            "🔒 10 hours";
+
+    }
+
+
+    const greenCard =
+        document.getElementById(
+            "greenCard"
+        );
+
+
+    const greenStatus =
+        document.getElementById(
+            "greenStatus"
+        );
+
+
+    if(
+        account.greenUnlocked
+    ){
+
+        greenCard.classList.remove(
+            "locked"
+        );
+
+        greenStatus.innerText =
+            "🟢 UNLOCKED — PERMANENT";
+
+    }else{
+
+        greenCard.classList.add(
+            "locked"
+        );
+
+        greenStatus.innerText =
+            "🔒 2 hours";
+
+    }
+
+
+    const catCard =
+        document.getElementById(
+            "catCard"
+        );
+
+
+    const catStatus =
+        document.getElementById(
+            "catStatus"
+        );
+
+
+    if(
+        account.catUnlocked
+    ){
+
+        catCard.classList.remove(
+            "locked"
+        );
+
+        catStatus.innerText =
+            "🐱 UNLOCKED — PERMANENT";
+
+    }else{
+
+        catCard.classList.add(
+            "locked"
+        );
+
+        catStatus.innerText =
+            account.neonUnlocked
+            ? "🎧 1 hour other music"
+            : "🔒 Neon + 1 hour";
+
+    }
+
+}
+
+
+/* =====================================================
+CHALLENGE UI
+===================================================== */
+
+function updateChallengeUI(
+    account
+){
+
+    const neonPercent =
+        Math.min(
+            listeningSeconds /
+            36000 *
+            100,
+            100
+        );
+
+
+    document.getElementById(
+        "neonProgress"
+    ).style.width =
+        neonPercent +
+        "%";
+
+
+    document.getElementById(
+        "neonTime"
+    ).innerText =
+        account.neonUnlocked
+        ?
+        "⚡ NEON UNLOCKED FOREVER!"
+        :
+        formatHours(
+            listeningSeconds
+        ) +
+        " / 10 hours";
+
+
+    const greenPercent =
+        Math.min(
+            listeningSeconds /
+            7200 *
+            100,
+            100
+        );
+
+
+    document.getElementById(
+        "greenProgress"
+    ).style.width =
+        greenPercent +
+        "%";
+
+
+    document.getElementById(
+        "greenTime"
+    ).innerText =
+        account.greenUnlocked
+        ?
+        "🟢 DARK GREEN UNLOCKED FOREVER!"
+        :
+        formatHours(
+            listeningSeconds
+        ) +
+        " / 2 hours";
+
+
+    const catPercent =
+        account.neonUnlocked
+        ?
+        Math.min(
+            otherArtistSeconds /
+            3600 *
+            100,
+            100
+        )
+        :
+        0;
+
+
+    document.getElementById(
+        "catProgress"
+    ).style.width =
+        catPercent +
+        "%";
+
+
+    document.getElementById(
+        "catTime"
+    ).innerText =
+        account.catUnlocked
+        ?
+        "🐱 CAT UNLOCKED FOREVER!"
+        :
+        !account.neonUnlocked
+        ?
+        "🔒 Neon required"
+        :
+        formatHours(
+            otherArtistSeconds
+        ) +
+        " / 1 hour other music";
+
+}
+
+
+/* =====================================================
+THEMES
+===================================================== */
+
+function tryTheme(theme){
+
+    const accounts =
+        getAccounts();
+
+
+    const account =
+        accounts[currentUser];
+
+
+    if(
+        !account
+    ){
+
+        return;
+
+    }
+
+
+    if(
+        theme === "neon" &&
+        !account.neonUnlocked
+    ){
+
+        showToast(
+            "⚡ Listen for 10 hours to unlock Neon!"
+        );
+
+        return;
+
+    }
+
+
+    if(
+        theme === "green" &&
+        !account.greenUnlocked
+    ){
+
+        showToast(
+            "🟢 Listen for 2 hours to unlock Dark Green!"
+        );
+
+        return;
+
+    }
+
+
+    if(
+        theme === "cat" &&
+        !account.catUnlocked
+    ){
+
+        showToast(
+            "🐱 Unlock Neon + listen to another artist for 1 hour!"
+        );
+
+        return;
+
+    }
+
+
+    setTheme(theme);
+
+}
+
+
+function setTheme(theme){
+
+    const accounts =
+        getAccounts();
+
+
+    const account =
+        accounts[currentUser];
+
+
+    if(
+        !account
+    ){
+
+        return;
+
+    }
+
+
+    if(
+        theme === "neon" &&
+        !account.neonUnlocked
+    ){
+
+        return;
+
+    }
+
+
+    if(
+        theme === "green" &&
+        !account.greenUnlocked
+    ){
+
+        return;
+
+    }
+
+
+    if(
+        theme === "cat" &&
+        !account.catUnlocked
+    ){
+
+        return;
+
+    }
+
+
+    document.body.classList.remove(
+        "orange",
+        "white",
+        "neon",
+        "green",
+        "cat"
+    );
+
+
+    if(
+        theme !==
+        "black"
+    ){
+
+        document.body.classList.add(
+            theme
+        );
+
+    }
+
+
+    localStorage.setItem(
+        "musixTheme_" +
+        currentUser,
+        theme
+    );
+
+
+    showToast(
+        "🎨 " +
+        theme +
+        " theme activated!"
+    );
+
+}
+
+
+/* =====================================================
+LOAD THEME
+===================================================== */
+
+function loadTheme(){
+
+    const accounts =
+        getAccounts();
+
+
+    const account =
+        accounts[currentUser];
+
+
+    if(
+        !account
+    ){
+
+        return;
+
+    }
+
+
+    let theme =
+        localStorage.getItem(
+            "musixTheme_" +
+            currentUser
+        )
+        ||
+        "black";
+
+
+    if(
+        theme === "neon" &&
+        !account.neonUnlocked
+    ){
+
+        theme =
+            "black";
+
+    }
+
+
+    if(
+        theme === "green" &&
+        !account.greenUnlocked
+    ){
+
+        theme =
+            "black";
+
+    }
+
+
+    if(
+        theme === "cat" &&
+        !account.catUnlocked
+    ){
+
+        theme =
+            "black";
+
+    }
+
+
+    document.body.classList.remove(
+        "orange",
+        "white",
+        "neon",
+        "green",
+        "cat"
+    );
+
+
+    if(
+        theme !==
+        "black"
+    ){
+
+        document.body.classList.add(
+            theme
+        );
+
+    }
+
+}
+
+
+/* =====================================================
+SEARCH
+===================================================== */
+
+function searchMusic(){
+
+    const query =
+        document.getElementById(
+            "searchInput"
+        )
+        .value
+        .toLowerCase()
+        .trim();
+
+
+    const results =
+        document.getElementById(
+            "searchResults"
+        );
+
+
+    results.innerHTML = "";
+
+
+    if(!query){
+
+        return;
+
+    }
+
+
+    music
+        .filter(
+            song =>
+                song.name
+                    .toLowerCase()
+                    .includes(query)
+                ||
+                song.artist
+                    .toLowerCase()
+                    .includes(query)
+        )
+        .forEach(
+            song => {
+
+                results.innerHTML +=
+                    songCard(
+                        song,
+                        music.indexOf(
+                            song
+                        )
+                    );
+
+            }
+        );
+
+
+    if(
+        !results.innerHTML
+    ){
+
+        results.innerHTML =
+            "<p class='subtitle'>No results found.</p>";
+
+    }
+
+}
+
+
+/* =====================================================
+TOP SEARCH
+===================================================== */
+
+function topSearch(event){
+
+    if(
+        event.key !==
+        "Enter"
+    ){
+
+        return;
+
+    }
+
+
+    showPage(
+        "search"
+    );
+
+
+    document.getElementById(
+        "searchInput"
+    ).value =
+        event.target.value;
+
+
+    searchMusic();
+
+}
+
+
+/* =====================================================
+MIX
+===================================================== */
+
+function generateMix(){
+
+    const box =
+        document.getElementById(
+            "mixResults"
+        );
+
+
+    box.innerHTML = "";
+
+
+    [...music]
+        .sort(
+            () =>
+                Math.random() -
+                .5
+        )
+        .slice(
+            0,
+            8
+        )
+        .forEach(
+            song => {
+
+                box.innerHTML +=
+                    songCard(
+                        song,
+                        music.indexOf(
+                            song
+                        )
+                    );
+
+            }
+        );
+
+
+    showToast(
+        "🤖 Your Musix Mix is ready!"
+    );
+
+}
+
+
+/* =====================================================
+RADIO
+===================================================== */
+
+function startRadio(){
+
+    const value =
+        document.getElementById(
+            "radioInput"
+        ).value.trim();
+
+
+    if(
+        !value
+    ){
+
+        showToast(
+            "📻 Enter a song or artist."
+        );
+
+        return;
+
+    }
+
+
+    document.getElementById(
+        "radioStatus"
+    ).innerHTML = `
+
+        <br>
+
+        <h2>
+            📻 ${escapeHTML(value)} Radio
+        </h2>
+
+        <p class="artist">
+            Musix is generating your station...
+        </p>
+
+    `;
+
+
+    showToast(
+        "📻 Radio started!"
+    );
+
+}
+
+
+/* =====================================================
+STATS
+===================================================== */
+
+function updateStats(){
+
+    document.getElementById(
+        "minutesStat"
+    ).innerText =
+        Math.floor(
+            listeningSeconds /
+            60
+        );
+
+
+    const topSong =
+        Object.entries(
+            songStats
+        )
+        .sort(
+            (a,b) =>
+                b[1] -
+                a[1]
+        )[0];
+
+
+    const topArtist =
+        Object.entries(
+            artistStats
+        )
+        .sort(
+            (a,b) =>
+                b[1] -
+                a[1]
+        )[0];
+
+
+    document.getElementById(
+        "topSong"
+    ).innerText =
+        topSong
+        ? topSong[0]
+        : "—";
+
+
+    document.getElementById(
+        "topArtist"
+    ).innerText =
+        topArtist
+        ? topArtist[0]
+        : "—";
+
+}
+
+
+/* =====================================================
+FORMAT
+===================================================== */
+
+function formatHours(seconds){
+
+    return (
+        seconds /
+        3600
+    ).toFixed(2)
+    +
+    " hours";
+
+}
+
+
+/* =====================================================
+TOAST
+===================================================== */
+
+let toastTimer;
+
+
+function showToast(message){
+
+    const toast =
+        document.getElementById(
+            "toast"
+        );
+
+
+    toast.innerText =
+        message;
+
+
+    toast.style.display =
+        "block";
+
+
+    clearTimeout(
+        toastTimer
+    );
+
+
+    toastTimer =
+        setTimeout(
+            () => {
+
+                toast.style.display =
+                    "none";
+
+            },
+            3000
+        );
+
+}
+
+
+/* =====================================================
+STARTUP
+===================================================== */
+
+window.onload=function(){
+
+    const savedUser =
+        localStorage.getItem(
+            "musixCurrentUser"
+        );
+
+
+    if(
+        savedUser
+    ){
+
+        const accounts =
+            getAccounts();
+
+
+        if(
+            accounts[savedUser]
+        ){
+
+            startApp(
+                savedUser
+            );
+
+        }
+
+    }
+
+};
+</script>
+
+
+</body></html>
